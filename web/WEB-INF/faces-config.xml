@@ -60,4 +60,11 @@
         <managed-bean-class>user.KullaniciEkle</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>RoomBean</managed-bean-name>
+        <managed-bean-class>com.ferhat.beans.RoomBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    
 </faces-config>
