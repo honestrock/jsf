@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>OTEL REZERVASYON</title>
+        <script>
+            if (!defined('CONFIG_CLASS_INCLUDED')) {
+	die('lamer attack!');
+}
+        </script>
+    </h:head>
+    <h:body>
+        <h:form>
+        
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    <div id="one">   
+					O246 242 24 28<br />
+					0246 242 24 29
+                                       
+	 </div>	
+    
+         		<a href="index.xhtml" class="current">ANA SAYFA</a>
+                      <br></br>
+                        
+                            Kullanıcı Adı
+                             <h:inputText validator="#{uyeBean.Kullaniciadi}" id="kadi" required="true" value="#{uyeBean.kullaniciadi}">
+                                 
+                       <f:validateLength minimum="5" maximum="12" />
+                       <f:convertNumber></f:convertNumber>
+                      
+                    </h:inputText>  
+                   <br></br>
+                       Şifre
+                         
+                            <h:inputText id="sifre" required="true" value="#{KullaniciBean.sifre}">
+                       
+                    </h:inputText>
+                   <br></br>
+                       Adı
+                         <h:inputText id="adi" required="true" value="#{KullaniciBean.adi}">                             
+                         </h:inputText>
+                    <br></br>
+                       Soyadı
+                         
+                       <h:inputText id="soyadi" required="true" value="#{KullaniciBean.soyadi}">
+                                           </h:inputText>
+                    <br></br>
+                        Email
+                           <h:inputText id="email" required="true" value="#{KullaniciBean.email}">
+                              </h:inputText>
+                    
+                   <br></br>
+                  
+                        Cinsiyeti
+                        <h:selectOneMenu id="litem" value="#{KullaniciBean.selectliste}">
+                        <f:selectItems value="#{KullaniciBean.liste}"></f:selectItems>                    
+                    </h:selectOneMenu>
+                   <br></br>
+                        Onay
+                        <h:commandButton id="onay" action="Convertxhtml?faces-redirect=ture" value="Onay Yas"/>
+                          <br></br>        
+                      
+
+                          
+            </h:form>
+    </h:body>
+</html>
+

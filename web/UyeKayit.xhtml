@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+       <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'></link>
+        <link rel="stylesheet" href="css/style.css"></link>
+    </h:head>
+    <div id="top-bar">
+		
+		<div class="page-full-width">
+		
+			<a href="index.xhtml" class="round button dark ic-left-arrow image-left ">Return to website</a>
+
+		</div> <!-- end full-width -->	
+	
+	</div> <!-- end top-bar -->
+	
+	
+	
+	
+	
+	
+	<!-- MAIN CONTENT -->
+	<div id="content" >
+
+      
+       
+           
+        
+            <h:form id="login-form">
+                <fieldset>
+                
+
+                   
+                           
+                    <h:inputText id="kadi"  value="#{kullaniciEkle.kullanicilar.kullaniciadi}">
+                      
+                      
+                    </h:inputText>  
+                    
+                       Kullanıcı Adı
+                       <h:inputText id="sifre"  value="#{kullaniciEkle.kullanicilar.sifre}"></h:inputText>
+                         Şifre
+                           
+                       
+                    
+                   
+                       
+                         <h:inputText id="adi"  value="#{kullaniciEkle.kullanicilar.adi}">                             
+                        </h:inputText>
+                          Adı
+                   
+                      
+                            
+                          <h:inputText id="soyadi"  value="#{kullaniciEkle.kullanicilar.soyadi}">
+                                           </h:inputText>
+                          Soyadı
+                   
+                       
+                     
+                          <h:inputText id="email"  value="#{kullaniciEkle.kullanicilar.email}">
+                              </h:inputText>
+                            Email
+              
+                            <h:commandButton id="onay" action="#{kullaniciEkle.KullaniciKaydet()}" value="gönder"></h:commandButton>
+                    
+                               
+                </fieldset>
+                 
+            </h:form>
+        
+    </div>
+</html>
+

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div id="header">
+	<div class="row-1">
+         	<div class="wrapper">
+            	<div class="logo">
+                    <div style="float: left;">
+                        <h1><a href="index.xhtml">OTEL REZERVASYON</a></h1>
+                    </div>  
+               	
+                <div  style="float: right; margin-left: 200px;">
+                        <h:form>
+                            <h:outputText rendered="#{kullanici.loginYapildiMi==true}" value="hoşgeldin #{kullanici.kullanicibilgi.adi}"/>  &nbsp;&nbsp;
+                         <h:commandButton action="#{kullanici.cikisyap()}"  rendered="#{kullanici.loginYapildiMi==true}" value="Çıkış Yap"/>&nbsp;&nbsp;
+                        <h:link value="üye giriş"  outcome="login" rendered="#{kullanici.loginYapildiMi==false}"/>
+                        &nbsp;&nbsp; 
+                         <h:link value="üye değilmisiniz?"  outcome="UyeKayit" rendered="#{kullanici.loginYapildiMi==false}"/>
+                        </h:form>
+                        
+                    
+                  </div>
+                
+                </div>
+               <div class="login">
+               </div>
+            </div>
+         </div>
+			<div class="row-2">
+         	<div class="indent">
+               <!-- header-box begin -->
+               <div class="header-box">
+                  <div class="inner">
+                     <ul class="nav">
+                     	<li><a href="index.xhtml" >ANA SAYFA</a></li>
+                        <li><a href="duyurular.xhtml">Duyurular</a></li>
+                        <li><a href="galeri.xhtml">GALERİ</a></li>
+                        <li><a href="restaurant.xhtml">RESTAURANT</a></li>
+                        <li> <h:link value="PROFİL"  outcome="iletisim" rendered="#{kullanici.loginYapildiMi==true}"/></li>
+                        <li><h:link value="İLETİŞİM"  outcome="iletisim" rendered="#{kullanici.loginYapildiMi==false}"/></li>
+                        <li><a href="duyuru.xhtml">Duyuru Ekle</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <!-- header-box end -->
+            </div>
+         </div>
+		</div>
+    </h:body>
+</html>
+

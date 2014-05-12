@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="utf-8"></meta>
+	<title>Giriş</title>
+	
+	<!-- Stylesheets -->
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'></link>
+        <link rel="stylesheet" href="css/style.css"></link>
+
+	<!-- Optimize for mobile devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>  
+    </h:head>
+    <h:body>
+       
+	<!-- TOP BAR -->
+	<div id="top-bar">
+		
+		<div class="page-full-width">
+		
+			<a href="#" class="round button dark ic-left-arrow image-left ">Return to website</a>
+
+		</div> <!-- end full-width -->	
+	
+	</div> <!-- end top-bar -->
+	
+	
+	
+	
+	
+	
+	<!-- MAIN CONTENT -->
+	<div id="content">
+	
+		<h:form id="login-form">
+		
+			<fieldset>
+
+				<p>
+                                    <h:outputLabel for="login-username" value="username"></h:outputLabel>
+                                    <h:inputText  id="login-username" class="round full-width-input" value="#{kullanici.kullanicibilgi.kullaniciadi}" />
+				</p>
+
+				<p>
+                                    <h:outputLabel for="login-password">password</h:outputLabel>
+                                    <h:inputSecret  id="login-password" class="round full-width-input" value="#{kullanici.kullanicibilgi.sifre}" />
+				</p>
+				
+				<p>I've <a href="#">forgotten my password</a>.</p>
+                                <h:commandButton class="button round blue image-right ic-right-arrow" value="Giriş Yap" action="#{kullanici.girisYap()}"/>
+				<!--<a href="dashboard.html" class="button round blue image-right ic-right-arrow">LOG IN</a>-->
+                                <h:outputText rendered="#{kullanici.hatamesaji!=null}" style="color: red;" value="#{kullanici.hatamesaji}" />
+			</fieldset>
+
+			<br/><div class="information-box round">Just click on the "LOG IN" button to continue, no login information required.</div>
+
+		</h:form>
+		
+	</div> <!-- end content -->
+	
+	
+	
+	<!-- FOOTER -->
+	<div id="footer">
+
+		<p>&copy; Copyright 2012 <a href="#">BlueHosting, LLC</a>. All rights reserved.</p>
+		<p><strong>SimpleAdmin</strong> theme by <a href="http://www.adipurdila.com">Adi Purdila</a></p>
+	
+	</div> <!-- end footer -->
+    </h:body>
+</html>
+
