@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
          <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'></link>
         <link rel="stylesheet" href="css/style.css"></link>
@@ -20,11 +22,42 @@
 	
 	<h:form id="login-form">
 		
-            <fieldset>
+             <p:growl id="msgs" showDetail="true" />
+ 
+             <h:panelGrid columns="2" cellpadding="5">
+                 
+                  <p:outputLabel for="mask" value="Mask:" />
+                  <p:calendar id="mask" value="#{duyuruBean.rez.checkintarihi}" pattern="yyyy-MM-dd"  />
+                  <p:outputLabel for="out" value="Mask:" />
+                  <p:calendar id="out" value="#{duyuruBean.rez.checkouttarihi}" pattern="yyyy-MM-dd"  />
+                  
+                   
+                   <p:outputLabel for="baslik1" value="Rezarvasyon Ucret" />
+                   <h:inputText  id="baslik1" class="round full-width-input" value="#{duyuruBean.rez.alinanucret}" />
                 
-            </fieldset>
+               
+                   <h:outputLabel for="baslik2" value="Duyuru Başlığı"></h:outputLabel>
+                   <h:inputText  id="baslik2" class="round full-width-input" value="#{duyuruBean.rez.gun}" />
+                 
+                   <h:outputLabel for="baslik3" value="Duyuru Başlığı"></h:outputLabel>
+                   <h:inputText  id="baslik3" class="round full-width-input" value="#{duyuruBean.rez.kisisayisi}" />
+                  
+                   <h:outputLabel for="baslik4" value="Duyuru Başlığı"></h:outputLabel>
+                   <h:inputText  id="baslik4" class="round full-width-input" value="#{duyuruBean.rez.kullanici}" />
+                  
+                   <h:outputLabel for="baslik5" value="Duyuru Başlığı"></h:outputLabel>
+                   <h:inputText  id="baslik5" class="round full-width-input" value="#{duyuruBean.rez.odano}" />
+                 
+             </h:panelGrid>
 	
-	
+             <p:commandButton value="Submit" update="msgs" action="#{duyuruBean.rezervasyonYap()}" icon="ui-icon-check" />
+         
+             
+             
+             <p:dialog modal="true" resizable="false" header="Rezervasyon Başarı İle Yapıldı" widgetVar="dlg" showEffect="fold">
+      
+    </p:dialog>
+        
         </h:form>
 	
 	<!-- MAIN CONTENT -->

@@ -6,11 +6,17 @@
 
 package duyuru;
 
+import com.ferhat.domains.Checkin;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import org.primefaces.context.RequestContext;
+import org.primefaces.event.SelectEvent;
 
 
 /**
@@ -21,14 +27,51 @@ public class duyuruBean {
 
     public Baglanti bag1=new Baglanti();
     private Duyurular duyuru;
+    private Checkin rez;
   
     private PreparedStatement pr;
+    private PreparedStatement pr1;
     public duyuruBean() {
+        rez=new Checkin();
         duyuru=new Duyurular();
         duyuru.setBaslik("");
         duyuru.setIcerik("");
         duyuru.setOnay(1);
          bag1.baglan();
+    }
+    
+     public void onDateSelect(SelectEvent event) {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
+    }
+    
+
+    
+    public void rezervasyonYap(){
+        try{
+        
+            
+            pr1=bag1.baglan().prepareStatement("INSERT INTO `otel`.`CHECKIN`(`checkintarihi`,`checkouttarihi`,`alinanucret`,`gun`,`kisisayisi`,`kullanici`,`odano`) VALUES (?,?,?,?,?,?,?);");
+            pr1.setDate(1, new java.sql.Date(rez.getCheckintarihi().getTime()));
+            pr1.setDate(2,  new java.sql.Date(rez.getCheckouttarihi().getTime()));
+            pr1.setInt(3, rez.getAlinanucret());
+            pr1.setInt(4, rez.getGun());
+            pr1.setInt(5, rez.getKisisayisi());
+            pr1.setInt(6, rez.getKullanici());
+            pr1.setInt(7, rez.getOdano());
+            
+            pr1.executeUpdate();
+            
+            RequestContext requestContext = RequestContext.getCurrentInstance();         
+            requestContext.update("form:display");
+            requestContext.execute("PF('dlg').show()");
+            
+           
+        }catch(SQLException e){
+            
+      
+        }
     }
     
     public String duyuruKaydet() {
@@ -67,6 +110,20 @@ public class duyuruBean {
      */
     public void setDuyuru(Duyurular duyuru) {
         this.duyuru = duyuru;
+    }
+
+    /**
+     * @return the rez
+     */
+    public Checkin getRez() {
+        return rez;
+    }
+
+    /**
+     * @param rez the rez to set
+     */
+    public void setRez(Checkin rez) {
+        this.rez = rez;
     }
     
 }

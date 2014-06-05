@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+         <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'></link>
+        <link rel="stylesheet" href="css/style.css"></link>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> 
+    </h:head>
+    <h:body>
+        <div id="top-bar">
+		
+		<div class="page-full-width">
+		
+			<a href="index.xhtml" class="round button dark ic-left-arrow image-left ">Return to website</a>
+
+		</div> <!-- end full-width -->	
+	
+	</div> <!-- end top-bar -->
+	
+	<h:form id="login-form">
+		
+             <p:growl id="msgs" showDetail="true" />
+ 
+             <h:panelGrid columns="2" cellpadding="5">
+                 
+                  <p:outputLabel for="mask" value="Mask:" />
+                  <p:calendar id="mask" value="#{duyuruListeleme.test.checkintarihi}" pattern="yyyy-MM-dd"  />
+                  <p:outputLabel for="out" value="Mask:" />
+                  <p:calendar id="out" value="#{duyuruListeleme.test.checkouttarihi}" pattern="yyyy-MM-dd"  />
+
+             </h:panelGrid>
+	
+             <p:commandButton value="Submit" update="msgs" action="#{duyuruListeleme.rezarvasyonGetir()}" icon="ui-icon-check" />
+             <h:commandButton class="button round blue image-right ic-right-arrow" value="Giriş Yap" action="#{duyuruListeleme.rezarvasyonGetir()}"/>
+           
+
+        
+        </h:form>
+	
+	<!-- MAIN CONTENT -->
+	<div id="content">
+	
+        </div>
+    </h:body>
+</html>
+
